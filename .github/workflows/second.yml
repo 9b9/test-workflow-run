@@ -1,0 +1,17 @@
+name: Test workflow_run
+on:
+  workflow_run:
+    workflows:
+      - 'Test pull_request'
+    types:
+      - completed
+jobs:
+  wf_run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.workflow_run.head_branch }}
+      - run: echo $PREVIOUS_RUN_BRANCH
+        env:
+          PREVIOUS_RUN_BRANCH: ${{ github.event.workflow_run.head_branch }}
