@@ -12,6 +12,3 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: ${{ github.event.workflow_run.head_branch }}
-      - run: echo $PREVIOUS_RUN_BRANCH
-        env:
-          PREVIOUS_RUN_BRANCH: ${{ github.event.workflow_run.head_branch }}
