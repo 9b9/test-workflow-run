@@ -1,0 +1,8 @@
+name: Test pull_request
+on:
+  pull_request:
+jobs:
+  pr:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "All good"
